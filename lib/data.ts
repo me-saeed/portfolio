@@ -961,6 +961,63 @@ export const projects: Project[] = [
   }
 ];
 
+export type Recommendation = {
+  title: string;
+  company: string;
+  document: string;
+};
+
+export const recommendations: Recommendation[] = [
+  {
+    title: "Certificate of completion - Livello GmbH",
+    company: "Livello GmbH",
+    document: "/pdf/Certificate_Livello_GmbH.pdf",
+  },
+  {
+    title: "Letter of recommendation - Warptec Software GmbH",
+    company: "Warptec Software GmbH",
+    document: "/pdf/Letter_Of_Recommendation_Warptec_Software_GmbH.pdf",
+  },
+];
+
+export type Certification = { 
+  title: string;
+  issuer: string;
+  year: string;
+  credentialId?: string;
+  url?: string;
+};
+
+export const certifications: Certification[] = [
+  {
+    title: "AWS Certified Solutions Architect – Associate",
+    issuer: "Amazon Web Services",
+    year: "2024",
+    credentialId: "AWS-ASA-0000",
+    url: "https://www.credly.com",
+  },
+  {
+    title: "Meta React Native Specialization",
+    issuer: "Meta / Coursera",
+    year: "2023",
+    credentialId: "META-RN-0000",
+    url: "https://www.coursera.org",
+  },
+  {
+    title: "LangChain for LLM Application Development",
+    issuer: "DeepLearning.AI",
+    year: "2023",
+    url: "https://learn.deeplearning.ai",
+  },
+  {
+    title: "MongoDB Developer Certification",
+    issuer: "MongoDB University",
+    year: "2022",
+    credentialId: "MDB-0000",
+    url: "https://university.mongodb.com",
+  },
+];
+
 export type Experience = {
   role: string;
   company: string;
