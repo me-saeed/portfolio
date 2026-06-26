@@ -728,6 +728,83 @@ export const projects: Project[] = [
           "Loyalty points, rewards, payments, and order tracking help create a stronger commerce experience.",
       },
     ],
+  },
+  {
+    slug: "mema-pos-retail-ai-automation",
+    name: "Mema POS",
+    tagline: "An AI-powered POS platform that automates retail operations for cosmetics shops.",
+    category: "AI Retail Automation",
+    types: ["Web", "Workflow Automation", "AI Agent"],
+    platform: "Web App + AI POS System",
+    year: "2025",
+    role: "Full-Stack & AI Automation Developer",
+    timeline: "4 months",
+    accentFrom: "#ec4899",
+    accentTo: "#7c3aed",
+    summary:
+      "Mema POS is an AI-powered retail management platform built for cosmetics shops and retail businesses. The system combines POS operations, CRM, accounting, inventory tracking, customer automation, AI-assisted insights, and reporting workflows into one smart business platform.",
+    links: [
+      {
+        label: "Visit website",
+        url: "https://mema-pos.com/",
+        kind: "website",
+      },
+    ],
+    challenge:
+      "Cosmetics shops often manage sales, customers, stock, accounting, and reports manually across different tools. This creates duplicated work, slow decisions, missed customer follow-ups, and poor stock visibility. Mema POS needed to automate daily retail workflows and provide smarter insights for shop owners.",
+    approach:
+      "I helped build a full-stack POS system with AI-assisted automation for customer management, stock tracking, sales reporting, and business insights. The platform automated repeated tasks such as customer record updates, low-stock alerts, transaction tracking, accounting summaries, and daily performance reports. AI workflows helped shop owners understand sales trends, customer activity, and product performance faster.",
+    outcome:
+      "Mema POS helped retail teams reduce manual admin work and manage daily operations from one intelligent platform. Shop owners could track sales, monitor inventory, review customer behavior, and receive useful business insights without switching between disconnected tools.",
+    highlights: [
+      "AI-assisted sales, customer, and inventory insights",
+      "Automated low-stock alerts, reports, and accounting workflows",
+      "POS, CRM, inventory, and reporting modules connected in one system",
+    ],
+    results: [
+      { value: "5+", label: "Retail automation modules built" },
+      { value: "-40%", label: "Manual admin work reduced" },
+      { value: "+35%", label: "Faster business insight access" },
+    ],
+    stack: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "REST APIs",
+      "AI Integration",
+      "Workflow Automation",
+      "JWT Authentication",
+      "CRM Automation",
+      "Inventory Automation",
+      "Reporting Dashboard",
+    ],
+    gallery: [
+      {
+        title: "AI POS dashboard",
+        image: "/imgs/portfolios/mema-pos/1.png",
+        caption:
+          "Shop owners can view sales, customers, inventory, and AI-assisted business insights from one dashboard.",
+      },
+      {
+        title: "Customer automation",
+        image: "/imgs/portfolios/mema-pos/2.png",
+        caption:
+          "CRM workflows help track customer activity, purchase history, and follow-up opportunities automatically.",
+      },
+      {
+        title: "Inventory alerts",
+        image: "/imgs/portfolios/mema-pos/3.png",
+        caption:
+          "Automated stock workflows help teams detect low inventory and manage product availability faster.",
+      },
+      {
+        title: "Smart reports",
+        image: "/imgs/portfolios/mema-pos/4.png",
+        caption:
+          "AI-assisted reporting helps owners understand sales trends, accounting summaries, and daily performance.",
+      },
+    ],
   }
 ];
 
