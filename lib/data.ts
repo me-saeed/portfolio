@@ -958,6 +958,75 @@ export const projects: Project[] = [
           "Real estate partners can manage listings, inquiries, buyer interest, and follow-up activity from one dashboard.",
       },
     ],
+  },
+  {
+    slug: "meeting-insights-ai-agent",
+    name: "Meeting Insights AI",
+    tagline: "An AI meeting-intelligence system that turns transcripts into searchable team insights.",
+    category: "AI Workflow Automation",
+    types: ["Workflow Automation", "AI Agent", "Web"],
+    platform: "AI Automation Workflow + Dashboard",
+    year: "2025",
+    role: "AI Agent & Workflow Automation Developer",
+    timeline: "3 months",
+    accentFrom: "#2563eb",
+    accentTo: "#7c3aed",
+    summary:
+      "Meeting Insights AI is an automated meeting-intelligence system that captures meeting transcripts, securely stores them in Google Drive, indexes them in Qdrant, and uses OpenAI and Gemini with RAG workflows to generate instant, actionable team insights.",
+    challenge:
+      "Teams often lose valuable information inside long meeting transcripts, scattered notes, and shared files. Finding decisions, action items, blockers, and previous discussion context can take too much time. The system needed to securely store meeting knowledge, make it searchable, and generate useful summaries and insights automatically.",
+    approach:
+      "I built an n8n automation workflow that captures meeting transcripts, stores them in Google Drive, extracts and cleans transcript content, creates embeddings, and indexes the data inside a Qdrant vector database. I connected OpenAI and Gemini models through a RAG pipeline so users could retrieve relevant transcript context and generate summaries, decisions, action items, risks, and follow-up insights.",
+    outcome:
+      "The system helped teams turn meeting transcripts into a searchable knowledge base. Users could quickly find past decisions, extract action items, understand project context, and make better data-driven decisions without manually reviewing long meeting records.",
+    highlights: [
+      "n8n workflow for transcript capture, storage, indexing, and AI insight generation",
+      "Qdrant vector database for semantic search across meeting knowledge",
+      "RAG pipeline using OpenAI and Gemini for summaries, decisions, and action items",
+    ],
+    results: [
+      { value: "-63.5%", label: "Research effort reduced" },
+      { value: "24/7", label: "Automated transcript processing" },
+      { value: "+43.2%", label: "Faster insight discovery" },
+    ],
+    stack: [
+      "n8n",
+      "OpenAI API",
+      "Gemini API",
+      "Qdrant",
+      "Google Drive API",
+      "RAG Pipeline",
+      "Vector Database",
+      "AI Agent",
+      "Webhook Automation",
+      "JavaScript",
+    ],
+    gallery: [
+      {
+        title: "Transcript capture workflow",
+        image: "/imgs/portfolios/meeting-insights-ai/1.png",
+        caption:
+          "n8n captures meeting transcripts and starts the automated processing workflow.",
+      },
+      {
+        title: "Secure transcript storage",
+        image: "/imgs/portfolios/meeting-insights-ai/2.png",
+        caption:
+          "Meeting records are organized and securely stored in Google Drive for future access.",
+      },
+      {
+        title: "Qdrant vector indexing",
+        image: "/imgs/portfolios/meeting-insights-ai/3.png",
+        caption:
+          "Transcript content is embedded and indexed in Qdrant for fast semantic search.",
+      },
+      {
+        title: "AI insight generation",
+        image: "/imgs/portfolios/meeting-insights-ai/4.png",
+        caption:
+          "OpenAI and Gemini generate summaries, action items, decisions, risks, and follow-up insights.",
+      },
+    ],
   }
 ];
 
