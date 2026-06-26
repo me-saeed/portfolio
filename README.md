@@ -33,6 +33,15 @@ npm run dev
 
 Then open the URL printed in the terminal (defaults to http://localhost:3000).
 
+## Deploy on Netlify
+
+1. Push this repo to GitHub, GitLab, or Bitbucket.
+2. In the [Netlify dashboard](https://app.netlify.com/), choose **Add new site → Import an existing project** and connect the repo.
+3. Netlify auto-detects Next.js 16 — no extra plugins or env vars are required for this site.
+4. Click **Deploy**. Build command (`npm run build`) and Node 20 are set in `netlify.toml`.
+
+All pages are statically generated, so the site is fast and works out of the box on Netlify’s Next.js runtime.
+
 ## Scripts
 
 | Script          | Description                          |
