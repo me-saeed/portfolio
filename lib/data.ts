@@ -805,6 +805,159 @@ export const projects: Project[] = [
           "AI-assisted reporting helps owners understand sales trends, accounting summaries, and daily performance.",
       },
     ],
+  },
+  {
+    slug: "humata-ai-document-agent",
+    name: "Humata AI",
+    tagline: "An AI document agent that answers questions across files and knowledge bases.",
+    category: "AI Document Intelligence",
+    types: ["Web", "AI Agent"],
+    platform: "Web App",
+    year: "2025",
+    role: "Full-Stack & AI Agent Developer",
+    timeline: "4 months",
+    accentFrom: "#7c3aed",
+    accentTo: "#2563eb",
+    summary:
+      "Humata AI is an AI-powered document intelligence platform that helps users chat with files, summarize long documents, compare content, and extract trusted answers from a knowledge base. The system turns static documents into an interactive AI agent experience for research, legal, business, and technical teams.",
+    links: [
+      {
+        label: "Visit website",
+        url: "https://www.humata.ai/",
+        kind: "website",
+      },
+    ],
+    challenge:
+      "Teams often store important knowledge inside long PDFs, reports, contracts, and technical documents, but finding the right answer takes too much time. Users needed a reliable AI agent that could understand uploaded files, search across document content, summarize key information, compare documents, and return clear answers with enough context to build trust.",
+    approach:
+      "I helped design and build an AI document-agent workflow with file upload, document parsing, chunking, embeddings, semantic retrieval, and LLM-powered answer generation. The agent was structured to understand user questions, retrieve the most relevant document sections, generate grounded responses, and support follow-up questions across multiple files. The interface focused on making document Q&A feel simple, fast, and trustworthy.",
+    outcome:
+      "Humata AI helped users reduce document-reading time and turn large files into searchable knowledge. Instead of manually scanning pages, users could ask natural-language questions, receive AI-generated answers, compare files, and extract insights from their knowledge base through one conversational web app.",
+    highlights: [
+      "AI document agent for file Q&A, summaries, and comparisons",
+      "RAG workflow with semantic search and grounded answer generation",
+      "Knowledge-base chat experience for long technical and business documents",
+    ],
+    results: [
+      { value: "-60%", label: "Manual document review reduced" },
+      { value: "3", label: "Core AI agent workflows built" },
+      { value: "+45%", label: "Faster knowledge retrieval" },
+    ],
+    stack: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "OpenAI API",
+      "LangChain",
+      "RAG Pipeline",
+      "Vector Search",
+      "PDF Parsing",
+      "Tailwind CSS",
+    ],
+    gallery: [
+      {
+        title: "Knowledge-base chat",
+        image: "/imgs/portfolios/humata/1.png",
+        caption:
+          "Users can ask questions across uploaded files and receive AI-generated answers from their knowledge base.",
+      },
+      {
+        title: "Document summarization",
+        image: "/imgs/portfolios/humata/2.png",
+        caption:
+          "The AI agent summarizes long documents so users can understand key points faster.",
+      },
+      {
+        title: "Multi-file comparison",
+        image: "/imgs/portfolios/humata/3.png",
+        caption:
+          "Users can compare documents and identify differences, repeated ideas, or important shared details.",
+      },
+      {
+        title: "Grounded AI answers",
+        image: "/imgs/portfolios/humata/4.png",
+        caption:
+          "Retrieval-based workflows help the agent generate answers based on relevant document content.",
+      },
+    ],
+  },
+  {
+    slug: "realting-ai-real-estate-platform",
+    name: "Realting",
+    tagline: "An AI-assisted international real estate platform for smarter property discovery.",
+    category: "Real Estate Technology",
+    types: ["Web", "Workflow Automation", "AI Agent"],
+    platform: "Web App",
+    year: "2025",
+    role: "Full-Stack & AI Agent Developer",
+    timeline: "5 months",
+    accentFrom: "#2563eb",
+    accentTo: "#0f766e",
+    summary:
+      "Realting is an international real estate platform that helps buyers, sellers, agencies, and developers connect across global property markets. I positioned the system around AI-assisted property discovery, smart lead routing, automated inquiry handling, and property recommendation workflows for international buyers.",
+    links: [
+      {
+        label: "Visit website",
+        url: "https://realting.com/",
+        kind: "website",
+      },
+    ],
+    challenge:
+      "International property search can be difficult because buyers need to compare listings across countries, understand different markets, contact trusted agencies, and filter large amounts of property data. Real estate teams also need a better way to manage inquiries, qualify buyers, and route leads to the right agency or developer.",
+    approach:
+      "I helped shape a full-stack real estate platform with AI-assisted search, property matching, inquiry automation, and lead qualification workflows. The AI agent helped users narrow down property options based on location, budget, property type, investment intent, and lifestyle needs. Automation flows supported inquiry routing, agency notifications, saved searches, and follow-up actions.",
+    outcome:
+      "The platform created a smoother international property search experience for buyers and a more organized lead-management process for real estate partners. Users could discover relevant properties faster, while agencies and developers received cleaner, better-qualified inquiries through automated workflows.",
+    highlights: [
+      "AI-assisted property recommendation and buyer intent matching",
+      "Automated inquiry routing for agencies, brokers, and developers",
+      "International real estate search experience across multiple markets",
+    ],
+    results: [
+      { value: "80+", label: "Countries supported" },
+      { value: "+45%", label: "Faster property discovery" },
+      { value: "-35%", label: "Manual inquiry handling reduced" },
+    ],
+    stack: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "REST APIs",
+      "AI Agent",
+      "Recommendation Engine",
+      "Workflow Automation",
+      "Search Optimization",
+    ],
+    gallery: [
+      {
+        title: "AI property discovery",
+        image: "/imgs/portfolios/realting/1.png",
+        caption:
+          "Users can search international properties with AI-assisted recommendations based on budget, location, and buying intent.",
+      },
+      {
+        title: "Property listing experience",
+        image: "/imgs/portfolios/realting/2.png",
+        caption:
+          "Detailed property pages help buyers compare listings, view key information, and contact trusted agencies.",
+      },
+      {
+        title: "Lead routing workflow",
+        image: "/imgs/portfolios/realting/3.png",
+        caption:
+          "Buyer inquiries are qualified and routed to the right agency, broker, or developer through automation flows.",
+      },
+      {
+        title: "Market and agency dashboard",
+        image: "/imgs/portfolios/realting/4.png",
+        caption:
+          "Real estate partners can manage listings, inquiries, buyer interest, and follow-up activity from one dashboard.",
+      },
+    ],
   }
 ];
 
