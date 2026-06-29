@@ -1027,6 +1027,102 @@ export const projects: Project[] = [
           "OpenAI and Gemini generate summaries, action items, decisions, risks, and follow-up insights.",
       },
     ],
+  },
+  {
+    slug: "founderflow-executive-ai-brain",
+    name: "FounderFlow",
+    tagline: "An executive AI brain that protects founder time and surfaces what matters.",
+    category: "Executive AI Automation",
+    types: ["Web", "Workflow Automation", "AI Agent"],
+    platform: "Web App + Google Workspace Automation",
+    year: "2026",
+    role: "Full-Stack & AI Agent Developer",
+    timeline: "4 months",
+    accentFrom: "#2563eb",
+    accentTo: "#7c3aed",
+    summary:
+      "FounderFlow is an AI-powered Executive Operating System that connects to Google Workspace, reads and classifies founder communications, detects revenue signals, prioritizes VIP messages, and generates daily executive briefings from inbox and calendar data.",
+    links: [
+      {
+        label: "Visit website",
+        url: "https://www.founderflowhq.ai/",
+        kind: "website",
+      },
+    ],
+    challenge:
+      "Founders often lose 2 to 4 hours every day inside email, newsletters, vendor updates, cold outreach, and scattered follow-ups. Important revenue opportunities, investor replies, urgent client issues, and meeting context can easily get buried. FounderFlow needed to transform a chaotic inbox into a trusted executive dashboard without feeling like a black-box AI tool.",
+    approach:
+      "I helped build an AI intelligence layer that connects with Google Workspace, classifies incoming emails, detects sales and revenue signals, identifies VIP messages, and explains why each item matters. The system used founder-specific business context such as strategic directives, target buyer profiles, minimum deal sizes, and priority rules to score and route communications. I also built dashboard workflows for Priority Inbox, Revenue Radar, Strategic Agenda, and Daily Briefing.",
+    outcome:
+      "FounderFlow helped founders reduce inbox fatigue and focus on high-value decisions. Instead of manually scanning every email, founders could review only priority communication, detect revenue opportunities faster, prepare for meetings with better context, and start each day with a concise executive briefing.",
+    highlights: [
+      "AI intelligence layer for email classification, priority scoring, and explainable decisions",
+      "Revenue Radar to detect high-intent sales signals, investor replies, and stalled opportunities",
+      "Daily Briefing and Strategic Agenda powered by Google Workspace and calendar context",
+    ],
+    results: [
+      { value: "2–4h", label: "Daily inbox time addressed" },
+      { value: "5", label: "Executive intelligence modules built" },
+      { value: "300+", label: "Founder waitlist interest" },
+    ],
+    stack: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Google Workspace API",
+      "Gmail API",
+      "Google Calendar API",
+      "OpenAI API",
+      "Gemini API",
+      "AI Agent",
+      "Workflow Automation",
+      "Vector Search",
+    ],
+    gallery: [
+      {
+        title: "Priority Inbox",
+        image: "/imgs/portfolios/founderflow/1.webp",
+        caption:
+          "The AI classifies emails into sales, VIP, meetings, escalations, and low-priority noise so founders can focus faster.",
+      },
+      {
+        title: "Revenue Radar",
+        image: "/imgs/portfolios/founderflow/2.webp",
+        caption:
+          "High-intent buying signals, demo requests, investor replies, and stalled opportunities are detected automatically.",
+      },
+      {
+        title: "Strategic Agenda",
+        image: "/imgs/portfolios/founderflow/3.webp",
+        caption:
+          "Calendar events are matched with recent emails so founders enter meetings with the right context.",
+      },
+      {
+        title: "Daily Briefing",
+        image: "/imgs/portfolios/founderflow/4.webp",
+        caption:
+          "Every morning, the system generates a concise executive briefing with key messages, risks, schedule, and pipeline updates.",
+      },
+      {
+        title: "Priority Inbox",  
+        image: "/imgs/portfolios/founderflow/5.webp",
+        caption:
+          "The AI classifies emails into sales, VIP, meetings, escalations, and low-priority noise so founders can focus faster.",
+      },
+      {
+        title: "Strategic Agenda",  
+        image: "/imgs/portfolios/founderflow/6.webp",
+        caption:
+          "High-intent buying signals, demo requests, investor replies, and stalled opportunities are detected automatically.",
+      },
+      {
+        title: "Daily Briefing",  
+        image: "/imgs/portfolios/founderflow/7.webp",
+        caption:
+          "Every morning, the system generates a concise executive briefing with key messages, risks, schedule, and pipeline updates.",
+      },
+    ],
   }
 ];
 

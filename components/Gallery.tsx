@@ -84,7 +84,7 @@ export function Gallery({ slides, accentFrom, accentTo, projectName }: GalleryPr
         >
           {slides.map((slide, i) => (
             <div
-              key={slide.title}
+              key={i}
               className="w-full flex-shrink-0 px-4 py-4 sm:px-6 sm:py-6"
               aria-hidden={i !== active}
               aria-roledescription="slide"
@@ -133,7 +133,7 @@ export function Gallery({ slides, accentFrom, accentTo, projectName }: GalleryPr
         <div className="flex items-center gap-2" role="tablist" aria-label="Choose slide">
           {slides.map((slide, i) => (
             <button
-              key={slide.title}
+              key={i}
               type="button"
               role="tab"
               aria-selected={i === active}
