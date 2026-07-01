@@ -39,6 +39,7 @@ export default async function CaseStudyPage({
   }
 
   const nextProject = projects[(index + 1) % projects.length];
+  const coverImage = project.gallery[0]?.image;
 
   return (
     <article>
@@ -51,6 +52,13 @@ export default async function CaseStudyPage({
           }}
           aria-hidden="true"
         />
+        {coverImage && (
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-20"
+            style={{ backgroundImage: `url(${coverImage})` }}
+            aria-hidden="true"
+          />
+        )}
         <div className="relative mx-auto w-full max-w-4xl px-6 pb-16 pt-12 md:pb-20 md:pt-16">
           <Reveal>
             <Link

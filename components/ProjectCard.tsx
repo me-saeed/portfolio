@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { Project } from "@/lib/data";
 
 export function ProjectCard({ project }: { project: Project }) {
+  const coverImage = project.gallery[0]?.image;
+
   return (
     <Link
       href={`/work/${project.slug}`}
@@ -14,6 +16,13 @@ export function ProjectCard({ project }: { project: Project }) {
           backgroundImage: `linear-gradient(135deg, ${project.accentFrom}, ${project.accentTo})`,
         }}
       >
+        {coverImage && (
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-20"
+            style={{ backgroundImage: `url(${coverImage})` }}
+            aria-hidden="true"
+          />
+        )}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_55%)]" />
         <div className="absolute inset-0 flex items-center justify-center">
           <span className="text-6xl font-bold tracking-tight text-white/90 drop-shadow-sm transition-transform duration-500 group-hover:scale-110">

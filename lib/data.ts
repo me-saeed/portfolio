@@ -1230,3 +1230,25 @@ export const experience: Experience[] = [
   },
 ];
 
+export type Education = {
+  school: string;
+  degree: string;
+  field: string;
+  duration: string;
+};
+
+export const education: Education[] = [
+  {
+    school: "Otto-Friedrich-Universität Bamberg",
+    degree: "Master's Degree",
+    field: "Software Systems Science",
+    duration: "Sep 2023 — Sep 2025",
+  },
+  {
+    school: "COMSATS University Islamabad",
+    degree: "Bachelor's Degree",
+    field: "Computer Science",
+    duration: "2017 — 2021",
+  },
+];
+
