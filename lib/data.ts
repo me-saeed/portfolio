@@ -1126,6 +1126,40 @@ export const projects: Project[] = [
   }
 ];
 
+export type Certificate = {
+  title: string;
+  issuer: string;
+  document: string;
+  url: string;
+};
+
+export const certificates: Certificate[] = [
+  {
+    title: "Certification of  Artificial intelligence from IBM",
+    issuer: "IBM",
+    document: "/pdf/Certification of  Artificial intelligence from IBM.pdf",
+    url: "https://www.coursera.org/verify/ZM2QVQYH6J36",
+  },
+  {
+    title: "Certification of  Cybersecurity from IBM",
+    issuer: "IBM",
+    document: "/pdf/certification of cybersecurity by IBM.pdf",
+    url: "https://www.coursera.org/verify/B4BRRENY4N8N",
+  },
+  {
+    title: "Certification of  Data Science from Google",
+    issuer: "Google",
+    document: "/pdf/certification of Data Science from Google.pdf",
+    url: "https://coursera.org/verify/JU3D5B8EUDXT",
+  },
+  {
+    title: "Certification of Wordpress development",
+    issuer: "IGNITE",
+    document: "/pdf/Certification of Wordpress development.pdf",
+    url: "#",
+  },
+];
+
 export type Recommendation = {
   title: string;
   company: string;
