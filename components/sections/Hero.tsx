@@ -4,7 +4,7 @@ import { Reveal } from "@/components/Reveal";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden">
+    <section id="hero" aria-labelledby="hero-heading" className="relative overflow-hidden">
       {/* Background texture */}
       <div className="pointer-events-none absolute inset-0 bg-grid" aria-hidden="true" />
       <div
@@ -25,9 +25,15 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={80}>
-          <h1 className="mx-auto mt-7 max-w-4xl text-balance text-center text-4xl font-semibold leading-[1.08] tracking-tight sm:text-6xl md:text-7xl">
+          <h1
+            id="hero-heading"
+            className="mx-auto mt-7 max-w-4xl text-balance text-center text-4xl font-semibold leading-[1.08] tracking-tight sm:text-6xl md:text-7xl"
+          >
             {profile.headline}
           </h1>
+          <p className="sr-only">
+            {profile.name} — {profile.role}
+          </p>
         </Reveal>
 
         <Reveal delay={160}>

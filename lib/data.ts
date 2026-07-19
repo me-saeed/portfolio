@@ -1,13 +1,38 @@
 // Central content for the portfolio.
 // Everything shown on the site is driven from this file — edit here to update content.
 
+/** Canonical site origin — update when the live domain changes. */
+export const siteUrl = "https://portfolio.saeedme.com";
+
 export const profile = {
   name: "Muhammad Saeed",
   role: "AI Agent, Full-Stack & React Native Engineer",
   headline:
     "AI, web, and mobile systems built for growth.",
   intro:
-    "For the past 5+ years, I've built production-ready AI agents, RAG systems, workflow automations, full-stack web platforms, and React Native mobile applications for healthcare, IoT, CRM, inventory, support, and document Q&A systems.",
+    "For the past 8+ years, I've built production-ready AI agents, RAG systems, workflow automations, full-stack web platforms, and React Native mobile applications for healthcare, IoT, CRM, inventory, support, and document Q&A systems.",
+  /** ~155-char SERP / Open Graph description. */
+  seoDescription:
+    "Muhammad Saeed — AI agent, full-stack & React Native engineer. RAG systems, workflow automation, and production web & mobile apps for healthcare, IoT, and SaaS.",
+  keywords: [
+    "Muhammad Saeed",
+    "AI agent developer",
+    "full-stack engineer",
+    "AI training & optimization",
+    "React Native developer",
+    "RAG systems",
+    "LLM agents",
+    "workflow automation",
+    "Next.js developer",
+    "LangChain",
+    "Python",
+    ".NET",
+    "Angular",
+    "Django",
+    "portfolio",
+  ],
+  /** Public profiles for schema.org sameAs (add LinkedIn, GitHub, etc.). */
+  sameAs: [] as string[],
   // A few quick proof points shown in the hero.
   stats: [
     { value: "8+", label: "Years building AI, web & mobile systems" },
@@ -21,6 +46,7 @@ export const profile = {
     "React Native Mobile Apps",
     "Workflow Automation",
     "RAG & LLM Systems",
+    "AI Training & Optimization",
   ],
 };
 
@@ -1105,19 +1131,19 @@ export const projects: Project[] = [
           "Every morning, the system generates a concise executive briefing with key messages, risks, schedule, and pipeline updates.",
       },
       {
-        title: "Priority Inbox",  
+        title: "Priority Inbox",
         image: "/imgs/portfolios/founderflow/5.webp",
         caption:
           "The AI classifies emails into sales, VIP, meetings, escalations, and low-priority noise so founders can focus faster.",
       },
       {
-        title: "Strategic Agenda",  
+        title: "Strategic Agenda",
         image: "/imgs/portfolios/founderflow/6.webp",
         caption:
           "High-intent buying signals, demo requests, investor replies, and stalled opportunities are detected automatically.",
       },
       {
-        title: "Daily Briefing",  
+        title: "Daily Briefing",
         image: "/imgs/portfolios/founderflow/7.webp",
         caption:
           "Every morning, the system generates a concise executive briefing with key messages, risks, schedule, and pipeline updates.",
@@ -1194,7 +1220,7 @@ export const experience: Experience[] = [
     period: "Nov 2025 — Apr 2026",
     description:
       "Built healthcare platforms using React, React Native, TypeScript, and NestJS. Integrated FHIR and MedPlum APIs, improved health data consistency, and supported AI triage workflows for abnormal medical results.",
-    tags: ["Healthcare", "React Native", "FHIR", "AI Triage"],
+    tags: ["Healthcare", "React Native", "FHIR", "AI Triage", "Python"],
   },
   {
     role: "Full Stack Engineer",
@@ -1202,7 +1228,7 @@ export const experience: Experience[] = [
     period: "Apr 2024 — Oct 2025",
     description:
       "Developed inventory, reporting, authentication, and automation features using TypeScript, Node.js, and PostgreSQL. Built a LangChain-based agent for auto-inventory alerts and improved backend data flows.",
-    tags: ["LangChain", "Node.js", "PostgreSQL", "Automation"],
+    tags: ["LangChain", "Node.js", "PostgreSQL", "Automation", "Python"],
   },
   {
     role: "Full-stack Developer",
@@ -1210,7 +1236,7 @@ export const experience: Experience[] = [
     period: "Nov 2023 — Apr 2024",
     description:
       "Built a MERN operations panel for 500+ IoT smart fridges across Europe. Added GraphQL APIs, telemetry aggregation, and an LLM-assisted maintenance scheduling workflow.",
-    tags: ["MERN", "IoT", "GraphQL", "LLM Automation"],
+    tags: ["MERN", "IoT", "GraphQL", "LLM Automation", ".NET", "Python"],
   },
   {
     role: "Full-stack Developer",
@@ -1226,7 +1252,7 @@ export const experience: Experience[] = [
     period: "Sep 2017 — Sep 2023",
     description:
       "Delivered 100+ freelance projects across AI automation, full-stack web apps, mobile apps, and document Q&A systems using LangChain, FAISS, Pinecone, React, Next.js, and Node.js.",
-    tags: ["AI Agents", "RAG", "Next.js", "Full Stack"],
+    tags: ["AI Agents", "RAG", "MERN", "Full Stack", "Angular", "Django", "Python", ".NET"],
   },
 ];
 

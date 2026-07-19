@@ -5,10 +5,13 @@ import { Experience } from "@/components/sections/Experience";
 import { Education } from "@/components/sections/Education";
 import { Certificates } from "@/components/sections/Certificates";
 import { Recommendations } from "@/components/sections/Recommendations";
+import { JsonLd } from "@/components/JsonLd";
+import { itemListJsonLd, websiteJsonLd } from "@/lib/seo";
 
 export default function Home() {
   return (
     <>
+      <JsonLd data={[websiteJsonLd(), itemListJsonLd()]} />
       <Hero />
       <Work />
       <Services />

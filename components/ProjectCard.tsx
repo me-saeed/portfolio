@@ -1,8 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Project } from "@/lib/data";
 
 export function ProjectCard({ project }: { project: Project }) {
   const coverImage = project.gallery[0]?.image;
+  const coverAlt = `${project.name} — ${project.tagline}`;
 
   return (
     <Link
@@ -17,10 +19,12 @@ export function ProjectCard({ project }: { project: Project }) {
         }}
       >
         {coverImage && (
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-20"
-            style={{ backgroundImage: `url(${coverImage})` }}
-            aria-hidden="true"
+          <Image
+            src={coverImage}
+            alt={coverAlt}
+            fill
+            sizes="(max-width: 640px) 100vw, 50vw"
+            className="object-cover opacity-20 transition-transform duration-500 group-hover:scale-105"
           />
         )}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_55%)]" />

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { projects, serviceTypes } from "@/lib/data";
 import { Reveal } from "@/components/Reveal";
 import { ProjectCard } from "@/components/ProjectCard";
@@ -109,6 +110,19 @@ export function Work() {
             })}
           </div>
         </Reveal>
+
+        {/* Crawlable index of every case study (pagination only affects the visible grid). */}
+        <nav className="sr-only" aria-label="All case studies">
+          <ul>
+            {projects.map((project) => (
+              <li key={project.slug}>
+                <Link href={`/work/${project.slug}`}>
+                  {project.name} — {project.tagline}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         {/* Grid — keyed by active tab + page so cards re-animate on change */}
         <div key={`${active}-${currentPage}`} className="mt-10 grid gap-6 sm:grid-cols-2">

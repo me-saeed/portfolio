@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { projects } from "@/lib/data";
+import { profile, projects } from "@/lib/data";
 import { Reveal } from "@/components/Reveal";
 import { Gallery } from "@/components/Gallery";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbJsonLd, projectJsonLd } from "@/lib/seo";
 
 type Params = { slug: string };
 
@@ -18,10 +21,36 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
-  if (!project) return { title: "Case study not found" };
+  if (!project) return { title: "Case study not found", robots: { index: false } };
+
+  const title = `${project.name} — ${project.category} Case Study`;
+  const description = project.summary;
+  const coverImage = project.gallery.find((slide) => slide.image)?.image;
+  const path = `/work/${project.slug}`;
+
   return {
-    title: `${project.name} — ${project.category} Case Study`,
-    description: project.summary,
+    title,
+    description,
+    keywords: [project.name, project.category, ...project.types, ...project.stack.slice(0, 8)],
+    authors: [{ name: profile.name }],
+    openGraph: {
+      type: "article",
+      url: path,
+      title: project.name,
+      description,
+      images: coverImage
+        ? [{ url: coverImage, alt: `${project.name} — ${project.tagline}` }]
+        : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.name,
+      description,
+      images: coverImage ? [coverImage] : undefined,
+    },
+    alternates: {
+      canonical: path,
+    },
   };
 }
 
@@ -43,6 +72,8 @@ export default async function CaseStudyPage({
 
   return (
     <article>
+      <JsonLd data={[projectJsonLd(project), breadcrumbJsonLd(project)]} />
+
       {/* Hero */}
       <header className="relative overflow-hidden border-b border-border">
         <div
@@ -53,13 +84,34 @@ export default async function CaseStudyPage({
           aria-hidden="true"
         />
         {coverImage && (
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-20"
-            style={{ backgroundImage: `url(${coverImage})` }}
-            aria-hidden="true"
+          <Image
+            src={coverImage}
+            alt={`${project.name} — ${project.tagline}`}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-20"
           />
         )}
         <div className="relative mx-auto w-full max-w-4xl px-6 pb-16 pt-12 md:pb-20 md:pt-16">
+          <nav aria-label="Breadcrumb" className="mb-2">
+            <ol className="flex flex-wrap items-center gap-1.5 text-sm text-muted">
+              <li>
+                <Link href="/" className="transition-colors hover:text-foreground">
+                  Home
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li>
+                <Link href="/#work" className="transition-colors hover:text-foreground">
+                  Work
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li className="text-foreground">{project.name}</li>
+            </ol>
+          </nav>
+
           <Reveal>
             <Link
               href="/#work"
