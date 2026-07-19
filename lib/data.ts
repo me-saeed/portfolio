@@ -1071,7 +1071,7 @@ export const projects: Project[] = [
     links: [
       {
         label: "Visit website",
-        url: "https://www.founderflowhq.ai/",
+        url: "https://internaldev.founderflowhq.ai",
         kind: "website",
       },
     ],
