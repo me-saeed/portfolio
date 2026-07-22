@@ -2,6 +2,7 @@ import Link from "next/link";
 import { profile } from "@/lib/data";
 
 const footerLinks = [
+  { href: "/#intro", label: "Intro" },
   { href: "/#work", label: "Work" },
   { href: "/#services", label: "Services" },
   { href: "/#experience", label: "Experience" },

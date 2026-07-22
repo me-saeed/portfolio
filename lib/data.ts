@@ -50,6 +50,16 @@ export const profile = {
   ],
 };
 
+/** YouTube intro shown below the hero — set `youtubeId` to enable (from watch?v=ID or youtu.be/ID). */
+export const introVideo = {
+  youtubeId: "cwMBh9jVlsU",
+  title: "Meet Muhammad Saeed",
+  description:
+    "A quick intro to how I build AI agents, full-stack platforms, and React Native apps for real-world products.",
+  /** Optional ISO publish date for VideoObject schema (e.g. "2026-03-01"). */
+  uploadDate: "",
+};
+
 export type Service = {
   title: string;
   description: string;

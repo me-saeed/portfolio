@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { profile } from "@/lib/data";
 
 const navLinks = [
+  { href: "/#intro", label: "Intro" },
   { href: "/#work", label: "Work" },
   { href: "/#services", label: "Services" },
   { href: "/#experience", label: "Experience" },

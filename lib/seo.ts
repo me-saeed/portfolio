@@ -1,6 +1,7 @@
 import {
   education,
   experience,
+  introVideo,
   profile,
   projects,
   siteUrl,
@@ -116,5 +117,22 @@ export function itemListJsonLd() {
       name: project.name,
       url: absoluteUrl(`/work/${project.slug}`),
     })),
+  };
+}
+
+export function videoJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: introVideo.title,
+    description: introVideo.description,
+    embedUrl: `https://www.youtube.com/embed/${introVideo.youtubeId}`,
+    contentUrl: `https://www.youtube.com/watch?v=${introVideo.youtubeId}`,
+    uploadDate: introVideo.uploadDate || undefined,
+    author: {
+      "@type": "Person",
+      name: profile.name,
+      url: siteUrl,
+    },
   };
 }

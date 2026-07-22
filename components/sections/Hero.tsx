@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { profile } from "@/lib/data";
+import { introVideo, profile } from "@/lib/data";
 import { Reveal } from "@/components/Reveal";
 
 export function Hero() {
@@ -59,6 +59,14 @@ export function Hero() {
             >
               What I do
             </Link>
+            {introVideo.youtubeId && (
+              <Link
+                href="#intro"
+                className="inline-flex items-center gap-2 rounded-full border border-border-strong px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-surface-2"
+              >
+                Watch intro
+              </Link>
+            )}
           </div>
         </Reveal>
 
