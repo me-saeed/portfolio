@@ -53,8 +53,8 @@ export function Work() {
   };
 
   return (
-    <section id="work" className="scroll-mt-20 border-t border-border">
-      <div className="mx-auto w-full max-w-6xl px-6 py-24 md:py-28">
+    <section id="work" className="scroll-mt-20 overflow-x-clip border-t border-border">
+      <div className="mx-auto w-full min-w-0 max-w-6xl px-4 py-24 sm:px-6 md:py-28">
         <Reveal>
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
@@ -72,9 +72,9 @@ export function Work() {
         </Reveal>
 
         {/* Filter tabs */}
-        <Reveal delay={80}>
+        <Reveal delay={80} className="min-w-0">
           <div
-            className="mt-10 flex flex-nowrap gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="mt-10 flex w-full min-w-0 max-w-full flex-nowrap gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             role="tablist"
             aria-label="Filter work by service type"
           >
@@ -125,7 +125,7 @@ export function Work() {
         </nav>
 
         {/* Grid — keyed by active tab + page so cards re-animate on change */}
-        <div key={`${active}-${currentPage}`} className="mt-10 grid gap-6 sm:grid-cols-2">
+        <div key={`${active}-${currentPage}`} className="mt-10 grid min-w-0 gap-6 sm:grid-cols-2">
           {paginated.map((project, i) => (
             <Reveal key={project.slug} delay={(i % 2) * 80}>
               <ProjectCard project={project} />

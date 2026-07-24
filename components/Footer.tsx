@@ -16,7 +16,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border bg-surface">
-      <div className="mx-auto w-full max-w-6xl px-6 py-14">
+      <div className="mx-auto w-full min-w-0 max-w-6xl px-4 py-14 sm:px-6">
         <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
           <div className="max-w-md">
             <p className="text-lg font-semibold tracking-tight">{profile.name}</p>

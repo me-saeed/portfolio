@@ -6,7 +6,7 @@ export function Education() {
 
   return (
     <section id="education" className="scroll-mt-20 border-t border-border">
-      <div className="mx-auto w-full max-w-6xl px-6 py-24 md:py-28">
+      <div className="mx-auto w-full min-w-0 max-w-6xl px-4 py-24 sm:px-6 md:py-28">
         <Reveal>
           <p className="text-sm font-medium uppercase tracking-widest text-accent">Education</p>
           <h2 className="mt-3 max-w-2xl text-balance text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">

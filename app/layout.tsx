@@ -67,10 +67,10 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="min-h-full flex flex-col overflow-x-clip bg-background text-foreground">
         <JsonLd data={personJsonLd()} />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 overflow-x-clip pt-16 md:pt-0">{children}</main>
         <Footer />
       </body>
     </html>

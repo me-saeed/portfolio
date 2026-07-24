@@ -9,7 +9,7 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/work/${project.slug}`}
-      className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-background transition-all duration-300 hover:-translate-y-1 hover:border-border-strong hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.25)]"
+      className="group relative flex min-w-0 flex-col overflow-hidden rounded-2xl border border-border bg-background transition-all duration-300 hover:-translate-y-1 hover:border-border-strong hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.25)]"
     >
       {/* Cover */}
       <div
@@ -28,15 +28,15 @@ export function ProjectCard({ project }: { project: Project }) {
           />
         )}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_55%)]" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-6xl font-bold tracking-tight text-white/90 drop-shadow-sm transition-transform duration-500 group-hover:scale-110">
+        <div className="absolute inset-0 flex items-center justify-center px-4">
+          <span className="max-w-full break-words text-center text-3xl font-bold tracking-tight text-white/90 drop-shadow-sm transition-transform duration-500 group-hover:scale-110 min-[400px]:text-4xl sm:text-5xl md:text-6xl">
             {project.name}
           </span>
         </div>
-        <span className="absolute left-4 top-4 rounded-full bg-white/85 px-3 py-1 text-xs font-medium text-foreground backdrop-blur">
+        <span className="absolute left-3 top-3 max-w-[calc(100%-4.5rem)] truncate rounded-full bg-white/85 px-2.5 py-1 text-xs font-medium text-foreground backdrop-blur sm:left-4 sm:top-4 sm:max-w-none sm:px-3">
           {project.category}
         </span>
-        <span className="absolute right-4 top-4 rounded-full bg-black/25 px-3 py-1 text-xs font-medium text-white backdrop-blur">
+        <span className="absolute right-3 top-3 rounded-full bg-black/25 px-2.5 py-1 text-xs font-medium text-white backdrop-blur sm:right-4 sm:top-4 sm:px-3">
           {project.year}
         </span>
       </div>
