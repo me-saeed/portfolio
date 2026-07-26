@@ -60,6 +60,80 @@ export const introVideo = {
   uploadDate: "",
 };
 
+export type TechnologyCategory =
+  | "AI & LLM"
+  | "Machine Learning"
+  | "Vector & Search"
+  | "Frontend"
+  | "Mobile"
+  | "Backend"
+  | "Database"
+  | "Automation"
+  | "Cloud & DevOps";
+
+export type Technology = {
+  name: string;
+  mark: string;
+  category: TechnologyCategory;
+  color: string;
+};
+
+/** Curated technology index used by the animated stack showcase. */
+export const technologies: Technology[] = [
+  { name: "OpenAI", mark: "OA", category: "AI & LLM", color: "#10a37f" },
+  { name: "Claude", mark: "CL", category: "AI & LLM", color: "#d97757" },
+  { name: "Gemini", mark: "GM", category: "AI & LLM", color: "#4285f4" },
+  { name: "Hugging Face", mark: "HF", category: "AI & LLM", color: "#d5a900" },
+  { name: "LangChain", mark: "LC", category: "AI & LLM", color: "#1c3c3c" },
+  { name: "LangGraph", mark: "LG", category: "AI & LLM", color: "#334155" },
+  { name: "LlamaIndex", mark: "LI", category: "AI & LLM", color: "#7c3aed" },
+  { name: "Ollama", mark: "OL", category: "AI & LLM", color: "#111827" },
+  { name: "RAG", mark: "RG", category: "AI & LLM", color: "#4f46e5" },
+  { name: "AI Agents", mark: "AI", category: "AI & LLM", color: "#8b5cf6" },
+  { name: "Python", mark: "PY", category: "Machine Learning", color: "#3776ab" },
+  { name: "PyTorch", mark: "PT", category: "Machine Learning", color: "#ee4c2c" },
+  { name: "TensorFlow", mark: "TF", category: "Machine Learning", color: "#ff6f00" },
+  { name: "scikit-learn", mark: "SK", category: "Machine Learning", color: "#f7931e" },
+  { name: "Pandas", mark: "PD", category: "Machine Learning", color: "#150458" },
+  { name: "NumPy", mark: "NP", category: "Machine Learning", color: "#4d77cf" },
+  { name: "Qdrant", mark: "QD", category: "Vector & Search", color: "#dc244c" },
+  { name: "Pinecone", mark: "PC", category: "Vector & Search", color: "#0f8f8e" },
+  { name: "Weaviate", mark: "WV", category: "Vector & Search", color: "#008f70" },
+  { name: "Chroma", mark: "CH", category: "Vector & Search", color: "#f97316" },
+  { name: "Elasticsearch", mark: "ES", category: "Vector & Search", color: "#008f86" },
+  { name: "React", mark: "RE", category: "Frontend", color: "#087ea4" },
+  { name: "Next.js", mark: "NX", category: "Frontend", color: "#111111" },
+  { name: "TypeScript", mark: "TS", category: "Frontend", color: "#3178c6" },
+  { name: "JavaScript", mark: "JS", category: "Frontend", color: "#b99b00" },
+  { name: "Angular", mark: "NG", category: "Frontend", color: "#dd0031" },
+  { name: "Tailwind CSS", mark: "TW", category: "Frontend", color: "#0891b2" },
+  { name: "React Native", mark: "RN", category: "Mobile", color: "#087ea4" },
+  { name: "Expo", mark: "EX", category: "Mobile", color: "#111827" },
+  { name: "iOS", mark: "iO", category: "Mobile", color: "#555b66" },
+  { name: "Android", mark: "AN", category: "Mobile", color: "#168c4b" },
+  { name: "Node.js", mark: "ND", category: "Backend", color: "#287d28" },
+  { name: "NestJS", mark: "NS", category: "Backend", color: "#e0234e" },
+  { name: "Express", mark: "EX", category: "Backend", color: "#374151" },
+  { name: "Django", mark: "DJ", category: "Backend", color: "#092e20" },
+  { name: "FastAPI", mark: "FA", category: "Backend", color: "#007f73" },
+  { name: ".NET", mark: "N", category: "Backend", color: "#512bd4" },
+  { name: "GraphQL", mark: "GQ", category: "Backend", color: "#c30083" },
+  { name: "MongoDB", mark: "MO", category: "Database", color: "#368538" },
+  { name: "MySQL", mark: "MY", category: "Database", color: "#4479a1" },
+  { name: "PostgreSQL", mark: "PG", category: "Database", color: "#4169e1" },
+  { name: "Redis", mark: "RD", category: "Database", color: "#dc382d" },
+  { name: "Supabase", mark: "SB", category: "Database", color: "#168f61" },
+  { name: "Firebase", mark: "FB", category: "Database", color: "#c48600" },
+  { name: "n8n", mark: "n8", category: "Automation", color: "#d43863" },
+  { name: "Make", mark: "MK", category: "Automation", color: "#6d00cc" },
+  { name: "Zapier", mark: "ZP", category: "Automation", color: "#e04400" },
+  { name: "AWS", mark: "AWS", category: "Cloud & DevOps", color: "#c77700" },
+  { name: "Azure", mark: "AZ", category: "Cloud & DevOps", color: "#0078d4" },
+  { name: "Docker", mark: "DK", category: "Cloud & DevOps", color: "#1877b9" },
+  { name: "GitHub Actions", mark: "GH", category: "Cloud & DevOps", color: "#24292f" },
+  { name: "Linux", mark: "LX", category: "Cloud & DevOps", color: "#a97900" },
+];
+
 export type Service = {
   title: string;
   description: string;
@@ -1218,6 +1292,8 @@ export const recommendations: Recommendation[] = [
 export type Experience = {
   role: string;
   company: string;
+  logo?: string;
+  logoKind?: "xpera" | "freelance";
   period: string;
   description: string;
   tags: string[];
@@ -1227,6 +1303,7 @@ export const experience: Experience[] = [
   {
     role: "Full Stack Engineer",
     company: "ACTIMI",
+    logo: "/imgs/companies/actimi.svg",
     period: "Nov 2025 — Apr 2026",
     description:
       "Built healthcare platforms using React, React Native, TypeScript, and NestJS. Integrated FHIR and MedPlum APIs, improved health data consistency, and supported AI triage workflows for abnormal medical results.",
@@ -1235,6 +1312,7 @@ export const experience: Experience[] = [
   {
     role: "Full Stack Engineer",
     company: "Warptec Software GmbH",
+    logo: "/imgs/companies/warptec.png",
     period: "Apr 2024 — Oct 2025",
     description:
       "Developed inventory, reporting, authentication, and automation features using TypeScript, Node.js, and PostgreSQL. Built a LangChain-based agent for auto-inventory alerts and improved backend data flows.",
@@ -1243,6 +1321,7 @@ export const experience: Experience[] = [
   {
     role: "Full-stack Developer",
     company: "Livello Technologies",
+    logo: "/imgs/companies/livello.png",
     period: "Nov 2023 — Apr 2024",
     description:
       "Built a MERN operations panel for 500+ IoT smart fridges across Europe. Added GraphQL APIs, telemetry aggregation, and an LLM-assisted maintenance scheduling workflow.",
@@ -1251,6 +1330,7 @@ export const experience: Experience[] = [
   {
     role: "Full-stack Developer",
     company: "XPera - Das half mir",
+    logo: "/imgs/companies/xpera-concept.png",
     period: "Jun 2021 — Oct 2023",
     description:
       "Built web panels and a React Native mobile app for a marketplace platform. Automated order handling, inventory sync, AWS deployments, and customer support workflows.",
@@ -1259,6 +1339,7 @@ export const experience: Experience[] = [
   {
     role: "Freelance Full-Stack Developer",
     company: "Upwork and Fiverr",
+    logoKind: "freelance",
     period: "Sep 2017 — Sep 2023",
     description:
       "Delivered 100+ freelance projects across AI automation, full-stack web apps, mobile apps, and document Q&A systems using LangChain, FAISS, Pinecone, React, Next.js, and Node.js.",
@@ -1271,6 +1352,10 @@ export type Education = {
   degree: string;
   field: string;
   duration: string;
+  logo: string;
+  logoAlt: string;
+  logoOnDark?: boolean;
+  location?: string;
 };
 
 export const education: Education[] = [
@@ -1279,12 +1364,17 @@ export const education: Education[] = [
     degree: "Master's Degree",
     field: "Software Systems Science",
     duration: "Sep 2023 — Sep 2025",
+    logo: "/imgs/education/uni-bamberg-official.png",
+    logoAlt: "Otto-Friedrich-Universität Bamberg logo",
+    logoOnDark: true,
+    location: "Germany",
   },
   {
     school: "COMSATS University Islamabad",
     degree: "Bachelor's Degree",
     field: "Computer Science",
     duration: "2017 — 2021",
+    logo: "/imgs/education/comsats.png",
+    logoAlt: "COMSATS University logo",
   },
 ];
-

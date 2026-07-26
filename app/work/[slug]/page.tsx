@@ -77,23 +77,14 @@ export default async function CaseStudyPage({
       {/* Hero */}
       <header className="relative overflow-hidden border-b border-border">
         <div
-          className="absolute inset-0 opacity-[0.12]"
+          className="absolute inset-0 opacity-[0.16]"
           style={{
             backgroundImage: `linear-gradient(135deg, ${project.accentFrom}, ${project.accentTo})`,
           }}
           aria-hidden="true"
         />
-        {coverImage && (
-          <Image
-            src={coverImage}
-            alt={`${project.name} — ${project.tagline}`}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover opacity-20"
-          />
-        )}
-        <div className="relative mx-auto w-full max-w-4xl px-6 pb-16 pt-12 md:pb-20 md:pt-16">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_30%,transparent_0,rgba(8,10,15,0.25)_32%,#080a0f_75%)]" />
+        <div className="relative mx-auto w-full max-w-6xl px-4 pb-14 pt-10 sm:px-6 md:pb-20 md:pt-14">
           <nav aria-label="Breadcrumb" className="mb-2">
             <ol className="flex flex-wrap items-center gap-1.5 text-sm text-muted">
               <li>
@@ -112,114 +103,89 @@ export default async function CaseStudyPage({
             </ol>
           </nav>
 
-          <Reveal>
-            <Link
-              href="/#work"
-              className="inline-flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-foreground"
-            >
-              <svg className="h-4 w-4" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M13 8H3M7 4 3 8l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              All work
-            </Link>
-          </Reveal>
-
-          <Reveal delay={80}>
-            <div className="mt-8 flex flex-wrap items-center gap-2">
-              <span
-                className="rounded-full px-3 py-1 text-xs font-semibold text-white"
-                style={{
-                  backgroundImage: `linear-gradient(135deg, ${project.accentFrom}, ${project.accentTo})`,
-                }}
-              >
-                {project.category}
-              </span>
-              <span className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-muted">
-                {project.platform}
-              </span>
-              <span className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-muted">
-                {project.year}
-              </span>
+          <div className="mt-12 grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+            <div>
+              <Reveal>
+                <Link href="/#work" className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-muted transition-colors hover:text-foreground">
+                  <span aria-hidden="true">←</span> Back to projects
+                </Link>
+              </Reveal>
+              <Reveal delay={70}>
+                <div className="mt-8 flex flex-wrap items-center gap-2">
+                  <span className="rounded-full px-3 py-1 text-xs font-semibold text-white" style={{ backgroundImage: `linear-gradient(135deg, ${project.accentFrom}, ${project.accentTo})` }}>
+                    {project.category}
+                  </span>
+                  <span className="rounded-full border border-border bg-background/70 px-3 py-1 text-xs text-muted">{project.year}</span>
+                </div>
+                <h1 className="mt-6 text-balance text-5xl font-semibold leading-[0.95] tracking-[-0.045em] sm:text-6xl md:text-7xl">
+                  {project.name}
+                </h1>
+                <p className="mt-6 max-w-xl text-balance text-lg leading-relaxed text-muted">{project.tagline}</p>
+              </Reveal>
+              {project.links && project.links.length > 0 && (
+                <Reveal delay={130}>
+                  <div className="mt-7 flex flex-wrap gap-3">
+                    {project.links.map((link) => (
+                      <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/80 px-4 py-2 text-sm font-medium transition hover:-translate-y-0.5 hover:border-accent/40">
+                        <LinkIcon kind={link.kind} />{link.label}
+                      </a>
+                    ))}
+                  </div>
+                </Reveal>
+              )}
             </div>
-          </Reveal>
-
-          <Reveal delay={140}>
-            <h1 className="mt-6 text-balance text-4xl font-semibold leading-tight tracking-tight sm:text-5xl md:text-6xl">
-              {project.name}
-            </h1>
-            <p className="mt-4 max-w-2xl text-balance text-lg leading-relaxed text-muted">
-              {project.tagline}
-            </p>
-          </Reveal>
-
-          {project.links && project.links.length > 0 && (
-            <Reveal delay={180}>
-              <div className="mt-7 flex flex-wrap gap-3">
-                {project.links.map((link) => (
-                  <a
-                    key={link.url}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-all hover:-translate-y-0.5 hover:border-border-strong hover:shadow-sm"
-                  >
-                    <LinkIcon kind={link.kind} />
-                    {link.label}
-                  </a>
-                ))}
+            <Reveal delay={110}>
+              <div className="relative">
+                <div className="absolute -inset-8 rounded-full opacity-25 blur-3xl" style={{ backgroundImage: `linear-gradient(135deg, ${project.accentFrom}, ${project.accentTo})` }} />
+                <div className="relative rotate-[1.5deg] overflow-hidden rounded-2xl border border-white/15 bg-surface shadow-[0_45px_110px_-35px_rgba(0,0,0,0.9)] transition-transform duration-700 hover:rotate-0">
+                  <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-3">
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" /><span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" /><span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+                    <span className="mx-auto h-5 w-2/5 rounded-md border border-white/10 bg-black/20" />
+                    <span className="w-8" />
+                  </div>
+                  <div className="relative aspect-[16/10]" style={{ backgroundImage: `linear-gradient(135deg, ${project.accentFrom}, ${project.accentTo})` }}>
+                    {coverImage && <Image src={coverImage} alt={`${project.name} product interface`} fill priority sizes="(max-width: 1024px) 100vw, 55vw" className="object-cover" />}
+                  </div>
+                </div>
               </div>
             </Reveal>
-          )}
+          </div>
 
-          <Reveal delay={220}>
-            <dl className="mt-10 grid grid-cols-2 gap-6 border-t border-border pt-8 sm:grid-cols-3">
-              <div>
-                <dt className="text-xs uppercase tracking-wider text-muted-2">Role</dt>
-                <dd className="mt-1 text-sm font-medium">{project.role}</dd>
-              </div>
-              <div>
-                <dt className="text-xs uppercase tracking-wider text-muted-2">Timeline</dt>
-                <dd className="mt-1 text-sm font-medium">{project.timeline}</dd>
-              </div>
-              <div>
-                <dt className="text-xs uppercase tracking-wider text-muted-2">Platform</dt>
-                <dd className="mt-1 text-sm font-medium">{project.platform}</dd>
-              </div>
+          <Reveal delay={180}>
+            <dl className="mt-16 grid overflow-hidden rounded-2xl border border-border bg-black/15 sm:grid-cols-3">
+              {[
+                ["Role", project.role],
+                ["Timeline", project.timeline],
+                ["Platform", project.platform],
+              ].map(([label, value]) => (
+                <div key={label} className="border-b border-border p-5 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0">
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-2">{label}</dt>
+                  <dd className="mt-2 text-sm font-medium">{value}</dd>
+                </div>
+              ))}
             </dl>
           </Reveal>
         </div>
       </header>
 
-      {/* Big visual band */}
-      <Reveal>
-        <div
-          className="relative flex h-56 items-center justify-center overflow-hidden sm:h-72 md:h-80"
-          style={{
-            backgroundImage: `linear-gradient(135deg, ${project.accentFrom}, ${project.accentTo})`,
-          }}
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_15%,rgba(255,255,255,0.4),transparent_55%)]" />
-          <span className="text-5xl font-bold tracking-tight text-white/90 sm:text-7xl">
-            {project.name}
-          </span>
-        </div>
-      </Reveal>
-
       {/* Body */}
-      <div className="mx-auto w-full max-w-4xl px-6 py-20 md:py-24">
+      <div className="mx-auto w-full max-w-6xl px-4 py-20 sm:px-6 md:py-28">
         <Reveal>
-          <p className="text-balance text-xl font-medium leading-relaxed tracking-tight sm:text-2xl">
-            {project.summary}
-          </p>
+          <div className="grid gap-6 border-b border-border pb-16 md:grid-cols-[0.35fr_1fr]">
+            <SectionLabel>Project overview</SectionLabel>
+            <p className="text-balance text-2xl font-medium leading-relaxed tracking-tight sm:text-3xl">{project.summary}</p>
+          </div>
         </Reveal>
 
         {/* Results */}
         <Reveal>
-          <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3">
-            {project.results.map((result) => (
-              <div key={result.label} className="bg-background p-6 text-center">
+          <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {project.results.map((result, resultIndex) => (
+              <div key={result.label} className="relative overflow-hidden rounded-2xl border border-border bg-surface p-6 sm:p-7">
+                <span className="absolute right-4 top-3 font-mono text-[10px] text-muted-2">0{resultIndex + 1}</span>
+                <div className="mb-7 h-1 w-10 rounded-full" style={{ backgroundImage: `linear-gradient(90deg, ${project.accentFrom}, ${project.accentTo})` }} />
                 <p className="text-3xl font-semibold tracking-tight sm:text-4xl">{result.value}</p>
-                <p className="mt-1 text-sm text-muted">{result.label}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{result.label}</p>
               </div>
             ))}
           </div>
@@ -243,29 +209,20 @@ export default async function CaseStudyPage({
           </div>
         </Reveal>
 
-        <div className="mt-16 space-y-14">
-          <Reveal>
-            <Section title="The challenge" body={project.challenge} />
-          </Reveal>
-          <Reveal>
-            <Section title="The approach" body={project.approach} />
-          </Reveal>
+        <div className="mt-24 space-y-20">
+          <div className="grid gap-12 md:grid-cols-2">
+            <Reveal><StorySection number="01" title="The challenge" body={project.challenge} /></Reveal>
+            <Reveal delay={80}><StorySection number="02" title="The approach" body={project.approach} /></Reveal>
+          </div>
 
           <Reveal>
-            <div>
-              <SectionLabel>Highlights</SectionLabel>
-              <ul className="mt-5 space-y-3">
-                {project.highlights.map((h) => (
-                  <li key={h} className="flex items-start gap-3 text-base leading-relaxed">
-                    <svg
-                      className="mt-1 h-5 w-5 flex-shrink-0 text-accent"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      aria-hidden="true"
-                    >
-                      <path d="m5 10.5 3 3 7-7.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                    <span className="text-foreground/90">{h}</span>
+            <div className="rounded-[1.75rem] border border-border bg-surface p-6 sm:p-10">
+              <SectionLabel>Product capabilities</SectionLabel>
+              <ul className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2">
+                {project.highlights.map((h, highlightIndex) => (
+                  <li key={h} className="flex min-h-32 flex-col justify-between bg-background p-6 text-base leading-relaxed">
+                    <span className="font-mono text-[10px] text-muted-2">0{highlightIndex + 1}</span>
+                    <span className="mt-5 text-foreground/90">{h}</span>
                   </li>
                 ))}
               </ul>
@@ -273,18 +230,19 @@ export default async function CaseStudyPage({
           </Reveal>
 
           <Reveal>
-            <Section title="The outcome" body={project.outcome} />
+            <StorySection number="03" title="The outcome" body={project.outcome} wide />
           </Reveal>
 
           <Reveal>
-            <div className="border-t border-border pt-10">
-              <SectionLabel>Toolkit</SectionLabel>
-              <ul className="mt-5 flex flex-wrap gap-2">
+            <div className="border-t border-border pt-12">
+              <div className="flex items-end justify-between gap-4"><SectionLabel>Technical toolkit</SectionLabel><span className="font-mono text-[10px] uppercase tracking-widest text-muted-2">{project.stack.length} technologies</span></div>
+              <ul className="mt-7 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
                 {project.stack.map((tech) => (
                   <li
                     key={tech}
-                    className="rounded-full border border-border bg-surface px-4 py-1.5 text-sm font-medium text-muted"
+                    className="group flex items-center gap-3 rounded-xl border border-border bg-surface p-3 text-sm font-medium text-muted transition hover:border-accent/30 hover:text-foreground"
                   >
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent-soft font-mono text-[10px] font-semibold text-accent">{tech.slice(0, 2).toUpperCase()}</span>
                     {tech}
                   </li>
                 ))}
@@ -295,17 +253,22 @@ export default async function CaseStudyPage({
       </div>
 
       {/* Next project */}
-      <div className="border-t border-border bg-surface">
-        <div className="mx-auto w-full max-w-4xl px-6 py-16">
-          <p className="text-sm uppercase tracking-widest text-muted-2">Next project</p>
+      <div className="relative overflow-hidden border-t border-border bg-surface">
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `linear-gradient(135deg, ${nextProject.accentFrom}, ${nextProject.accentTo})` }} />
+        {nextProject.gallery[0]?.image && (
+          <Image src={nextProject.gallery[0].image} alt="" fill sizes="100vw" className="object-cover opacity-[0.08]" />
+        )}
+        <div className="relative mx-auto w-full max-w-6xl px-4 py-20 sm:px-6 md:py-24">
+          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-2">Continue exploring · Next project</p>
           <Link
             href={`/work/${nextProject.slug}`}
-            className="group mt-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between"
+            className="group mt-7 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between"
           >
-            <span className="text-3xl font-semibold tracking-tight transition-colors group-hover:text-accent sm:text-4xl">
-              {nextProject.name}
+            <span>
+              <span className="block text-4xl font-semibold tracking-[-0.04em] transition-colors group-hover:text-accent sm:text-6xl">{nextProject.name}</span>
+              <span className="mt-3 block max-w-xl text-sm leading-relaxed text-muted">{nextProject.tagline}</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors group-hover:text-foreground">
+            <span className="inline-flex shrink-0 items-center gap-2 rounded-full border border-border bg-background/70 px-5 py-3 text-sm font-medium transition group-hover:border-accent/40 group-hover:bg-accent group-hover:text-[#080a0f]">
               View case study
               <svg className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -346,11 +309,24 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Section({ title, body }: { title: string; body: string }) {
+function StorySection({
+  number,
+  title,
+  body,
+  wide = false,
+}: {
+  number: string;
+  title: string;
+  body: string;
+  wide?: boolean;
+}) {
   return (
-    <div>
-      <SectionLabel>{title}</SectionLabel>
-      <p className="mt-5 text-base leading-relaxed text-foreground/80 sm:text-lg">{body}</p>
+    <div className={`relative border-t border-border pt-7 ${wide ? "md:grid md:grid-cols-[0.35fr_1fr] md:gap-12" : ""}`}>
+      <div>
+        <span className="font-mono text-[10px] text-muted-2">{number}</span>
+        <SectionLabel>{title}</SectionLabel>
+      </div>
+      <p className={`${wide ? "mt-6 md:mt-0 md:text-xl" : "mt-6"} text-base leading-relaxed text-foreground/80 sm:text-lg`}>{body}</p>
     </div>
   );
 }

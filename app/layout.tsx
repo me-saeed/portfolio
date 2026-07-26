@@ -70,7 +70,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col overflow-x-clip bg-background text-foreground">
         <JsonLd data={personJsonLd()} />
         <Header />
-        <main className="flex-1 overflow-x-clip pt-16 md:pt-0">{children}</main>
+        <main className="flex-1 overflow-x-clip pt-16 lg:pt-0">{children}</main>
         <Footer />
       </body>
     </html>

@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { profile } from "@/lib/data";
 
 const navLinks = [
   { href: "/#intro", label: "Intro" },
+  { href: "/#tech-stack", label: "Stack" },
   { href: "/#work", label: "Work" },
   { href: "/#services", label: "Services" },
   { href: "/#experience", label: "Experience" },
@@ -34,11 +35,11 @@ function CloseIcon() {
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    () => () => undefined,
+    () => true,
+    () => false,
+  );
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -74,12 +75,12 @@ export function Header() {
     mounted &&
     createPortal(
       <div
-        className={`fixed inset-x-0 bottom-0 top-16 z-[90] md:hidden ${
+        className={`fixed inset-x-0 bottom-0 top-16 z-[90] lg:hidden ${
           open ? "visible" : "invisible pointer-events-none"
         }`}
         aria-hidden={!open}
       >
-        <div className="absolute inset-0 bg-white" />
+        <div className="absolute inset-0 bg-background" />
         <nav className="relative h-full overflow-y-auto overscroll-contain px-4 py-8 sm:px-6">
           {navLinks.map((link) => (
             <Link
@@ -106,10 +107,10 @@ export function Header() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-[100] transition-all duration-300 md:sticky ${
+        className={`fixed inset-x-0 top-0 z-[100] transition-all duration-300 lg:sticky ${
           headerSolid
-            ? "border-b border-border bg-white shadow-sm md:bg-white/95 md:shadow-none md:backdrop-blur-md"
-            : "border-b border-transparent bg-white md:bg-white/0"
+            ? "border-b border-border bg-background/95 shadow-sm lg:bg-background/80 lg:shadow-none lg:backdrop-blur-xl"
+            : "border-b border-transparent bg-background lg:bg-transparent"
         }`}
       >
         <div className="mx-auto flex h-16 w-full max-w-6xl min-w-0 items-center justify-between gap-3 px-4 sm:px-6">
@@ -124,7 +125,7 @@ export function Header() {
             <span className="truncate">{profile.name}</span>
           </Link>
 
-          <nav className="hidden items-center gap-1 md:flex">
+          <nav className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -147,7 +148,7 @@ export function Header() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border bg-white text-foreground shadow-sm md:hidden"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border bg-surface text-foreground shadow-sm lg:hidden"
           >
             {open ? <CloseIcon /> : <MenuIcon />}
           </button>

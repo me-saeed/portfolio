@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
 import { IntroVideo } from "@/components/sections/IntroVideo";
+import { TechStack } from "@/components/sections/TechStack";
 import { Services } from "@/components/sections/Services";
 import { Work } from "@/components/sections/Work";
 import { Experience } from "@/components/sections/Experience";
@@ -22,8 +23,9 @@ export default function Home() {
       <JsonLd data={jsonLd} />
       <Hero />
       <IntroVideo />
-      <Work />
       <Services />
+      <Work />
+      <TechStack />
       <Experience />
       <Education />
       <Certificates />

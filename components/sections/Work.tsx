@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { projects, serviceTypes } from "@/lib/data";
 import { Reveal } from "@/components/Reveal";
 import { ProjectCard } from "@/components/ProjectCard";
@@ -9,6 +10,7 @@ import { ProjectCard } from "@/components/ProjectCard";
 const PAGE_SIZE = 6;
 
 export function Work() {
+  const featured = projects.slice(0, 3);
   // Build the tab list: "All" plus any service type that has at least one project,
   // keeping the order defined in `serviceTypes`.
   const tabs = useMemo(() => {
@@ -31,11 +33,6 @@ export function Work() {
   const [page, setPage] = useState(1);
   const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
 
-  // Reset to the first page whenever the filter changes.
-  useEffect(() => {
-    setPage(1);
-  }, [active]);
-
   // Guard against the current page falling out of range after filtering.
   const currentPage = Math.min(page, pageCount);
 
@@ -52,6 +49,11 @@ export function Work() {
     }
   };
 
+  const selectTab = (tab: string) => {
+    setActive(tab);
+    setPage(1);
+  };
+
   return (
     <section id="work" className="scroll-mt-20 overflow-x-clip border-t border-border">
       <div className="mx-auto w-full min-w-0 max-w-6xl px-4 py-24 sm:px-6 md:py-28">
@@ -59,15 +61,70 @@ export function Work() {
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-sm font-medium uppercase tracking-widest text-accent">
-                Selected work
+                Complete project library
               </p>
               <h2 className="mt-3 max-w-2xl text-balance text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-                Platforms, end to end.
+                Evidence, not promises.
               </h2>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-muted">
-              Filter by what I do, then open any project for the full case study.
+              Every project remains available. Filter by capability, then inspect the complete case study.
             </p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={60}>
+          <div className="mt-14 grid gap-5 lg:grid-cols-12">
+            {featured.map((project, index) => {
+              const coverImage = project.gallery[0]?.image;
+              return (
+                <Link
+                  key={project.slug}
+                  href={`/work/${project.slug}`}
+                  className={`group relative min-h-[22rem] overflow-hidden rounded-[1.75rem] border border-border bg-surface ${
+                    index === 0 ? "lg:col-span-7 lg:row-span-2 lg:min-h-[34rem]" : "lg:col-span-5"
+                  }`}
+                >
+                  <div
+                    className="absolute inset-0"
+                    style={{ backgroundImage: `linear-gradient(135deg, ${project.accentFrom}, ${project.accentTo})` }}
+                  />
+                  {coverImage && (
+                    <Image
+                      src={coverImage}
+                      alt=""
+                      fill
+                      sizes={index === 0 ? "(max-width: 1024px) 100vw, 58vw" : "(max-width: 1024px) 100vw, 42vw"}
+                      className="object-cover opacity-65 transition duration-700 group-hover:scale-[1.035] group-hover:opacity-80"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/5" />
+                  <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+                    <div className="mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/65">
+                      <span>0{index + 1}</span><span className="h-px w-8 bg-white/30" /><span>{project.category}</span>
+                    </div>
+                    <h3 className={`${index === 0 ? "text-3xl sm:text-4xl" : "text-2xl"} font-semibold tracking-tight text-white`}>
+                      {project.name}
+                    </h3>
+                    <p className="mt-2 max-w-xl text-sm leading-relaxed text-white/70">{project.tagline}</p>
+                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white">
+                      Explore case study
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </Reveal>
+
+        <Reveal delay={80}>
+          <div className="mt-20 flex items-end justify-between border-b border-border pb-5">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-2">All case studies</p>
+              <h3 className="mt-2 text-2xl font-semibold tracking-tight">Complete project archive</h3>
+            </div>
+            <span className="font-mono text-xs text-muted-2">{projects.length} projects</span>
           </div>
         </Reveal>
 
@@ -92,7 +149,7 @@ export function Work() {
                   type="button"
                   role="tab"
                   aria-selected={isActive}
-                  onClick={() => setActive(tab)}
+                  onClick={() => selectTab(tab)}
                   className={`flex flex-shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? "border-foreground bg-foreground text-background"

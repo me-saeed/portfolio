@@ -22,7 +22,7 @@ export function Gallery({ slides, accentFrom, accentTo, projectName }: GalleryPr
 
   const go = useCallback(
     (next: number) => {
-      setActive((prev) => {
+      setActive(() => {
         const total = count;
         return ((next % total) + total) % total;
       });
@@ -74,7 +74,7 @@ export function Gallery({ slides, accentFrom, accentTo, projectName }: GalleryPr
     >
       {/* Viewport */}
       <div
-        className="relative overflow-hidden rounded-2xl border border-border bg-surface"
+        className="relative overflow-hidden rounded-[1.75rem] border border-border bg-[#0a0d14] shadow-[0_35px_100px_-50px_rgba(0,0,0,0.9)]"
         onPointerDown={onPointerDown}
         onPointerUp={onPointerUp}
       >
@@ -85,7 +85,7 @@ export function Gallery({ slides, accentFrom, accentTo, projectName }: GalleryPr
           {slides.map((slide, i) => (
             <div
               key={i}
-              className="w-full flex-shrink-0 px-4 py-4 sm:px-6 sm:py-6"
+              className="w-full flex-shrink-0 px-3 py-3 sm:px-6 sm:py-6"
               aria-hidden={i !== active}
               aria-roledescription="slide"
               aria-label={`${i + 1} of ${count}: ${slide.title}`}
@@ -123,14 +123,18 @@ export function Gallery({ slides, accentFrom, accentTo, projectName }: GalleryPr
         </span>
       </div>
 
-      {/* Caption + dots */}
-      <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      {/* Caption + thumbnail navigation */}
+      <div className="mt-6 flex flex-col gap-5">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="min-h-[2.5rem]">
           <p className="text-sm font-semibold tracking-tight">{slides[active].title}</p>
           <p className="mt-0.5 text-sm text-muted">{slides[active].caption}</p>
         </div>
-
-        <div className="flex items-center gap-2" role="tablist" aria-label="Choose slide">
+        <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-2">
+          Product screen {String(active + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
+        </div>
+        </div>
+        <div className="grid grid-cols-3 gap-2 sm:grid-cols-5" role="tablist" aria-label="Choose slide">
           {slides.map((slide, i) => (
             <button
               key={i}
@@ -139,10 +143,17 @@ export function Gallery({ slides, accentFrom, accentTo, projectName }: GalleryPr
               aria-selected={i === active}
               aria-label={`Go to slide ${i + 1}`}
               onClick={() => go(i)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                i === active ? "w-6 bg-foreground" : "w-2 bg-border-strong hover:bg-muted-2"
+              className={`relative aspect-[16/9] overflow-hidden rounded-lg border transition-all duration-300 ${
+                i === active ? "border-accent ring-2 ring-accent/20" : "border-border opacity-55 hover:opacity-100"
               }`}
-            />
+            >
+              {slide.image ? (
+                <Image src={slide.image} alt="" fill sizes="160px" className="object-cover" />
+              ) : (
+                <span style={{ backgroundImage: `linear-gradient(135deg, ${accentFrom}, ${accentTo})` }} className="absolute inset-0" />
+              )}
+              <span className="sr-only">{slide.title}</span>
+            </button>
           ))}
         </div>
       </div>
@@ -164,12 +175,14 @@ function Frame({
   const angle = 120 + index * 35;
 
   return (
-    <div className="overflow-hidden rounded-xl border border-border bg-background shadow-[0_20px_50px_-30px_rgba(0,0,0,0.35)]">
+    <div className="overflow-hidden rounded-2xl border border-border bg-background shadow-[0_30px_80px_-40px_rgba(0,0,0,0.8)]">
       {/* Faux window bar */}
       <div className="flex items-center gap-1.5 border-b border-border bg-surface px-4 py-3">
         <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+        <span className="mx-auto h-5 w-2/5 rounded-md border border-border bg-background/70" />
+        <span className="w-8" aria-hidden="true" />
       </div>
 
       {/* Screen */}
