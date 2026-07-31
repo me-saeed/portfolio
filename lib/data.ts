@@ -1,3 +1,5 @@
+import { applyProjectCatalog } from "@/lib/projectCatalog";
+
 // Central content for the portfolio.
 // Everything shown on the site is driven from this file — edit here to update content.
 
@@ -213,7 +215,7 @@ export type Project = {
   gallery: { title: string; caption: string; image?: string }[];
 };
 
-export const projects: Project[] = [
+const legacyProjects: Project[] = [
   {
     slug: "xpera-health-recommendation",
     name: "XPera",
@@ -1235,6 +1237,8 @@ export const projects: Project[] = [
     ],
   }
 ];
+
+export const projects: Project[] = applyProjectCatalog(legacyProjects);
 
 export type Certificate = {
   title: string;

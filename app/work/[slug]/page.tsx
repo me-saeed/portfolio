@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { profile, projects } from "@/lib/data";
 import { Reveal } from "@/components/Reveal";
 import { Gallery } from "@/components/Gallery";
+import { FlagshipProjectStory } from "@/components/FlagshipProjectStory";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd, projectJsonLd } from "@/lib/seo";
 
@@ -69,6 +70,12 @@ export default async function CaseStudyPage({
 
   const nextProject = projects[(index + 1) % projects.length];
   const coverImage = project.gallery[0]?.image;
+  const isShowcase = [
+    "founderflow-executive-ai-brain",
+    "agentic-rag-document-intelligence",
+    "lyric-multilingual-foundation-model",
+    "xpera-health-recommendation",
+  ].includes(project.slug);
 
   return (
     <article>
@@ -143,8 +150,8 @@ export default async function CaseStudyPage({
                     <span className="mx-auto h-5 w-2/5 rounded-md border border-white/10 bg-black/20" />
                     <span className="w-8" />
                   </div>
-                  <div className="relative aspect-[16/10]" style={{ backgroundImage: `linear-gradient(135deg, ${project.accentFrom}, ${project.accentTo})` }}>
-                    {coverImage && <Image src={coverImage} alt={`${project.name} product interface`} fill priority sizes="(max-width: 1024px) 100vw, 55vw" className="object-cover" />}
+                  <div className={`relative ${isShowcase ? "aspect-[16/9] bg-[#070a10]" : "aspect-[16/10]"}`} style={isShowcase ? undefined : { backgroundImage: `linear-gradient(135deg, ${project.accentFrom}, ${project.accentTo})` }}>
+                    {coverImage && <Image src={coverImage} alt={`${project.name} product interface`} fill priority sizes="(max-width: 1024px) 100vw, 55vw" className={isShowcase ? "object-contain" : "object-cover"} />}
                   </div>
                 </div>
               </div>
@@ -175,6 +182,10 @@ export default async function CaseStudyPage({
             <SectionLabel>Project overview</SectionLabel>
             <p className="text-balance text-2xl font-medium leading-relaxed tracking-tight sm:text-3xl">{project.summary}</p>
           </div>
+        </Reveal>
+
+        <Reveal>
+          <FlagshipProjectStory project={project} />
         </Reveal>
 
         {/* Results */}

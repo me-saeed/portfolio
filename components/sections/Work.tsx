@@ -77,6 +77,11 @@ export function Work() {
           <div className="mt-14 grid gap-5 lg:grid-cols-12">
             {featured.map((project, index) => {
               const coverImage = project.gallery[0]?.image;
+              const containPreview = [
+                "founderflow-executive-ai-brain",
+                "agentic-rag-document-intelligence",
+                "lyric-multilingual-foundation-model",
+              ].includes(project.slug);
               return (
                 <Link
                   key={project.slug}
@@ -86,18 +91,28 @@ export function Work() {
                   }`}
                 >
                   <div
-                    className="absolute inset-0"
-                    style={{ backgroundImage: `linear-gradient(135deg, ${project.accentFrom}, ${project.accentTo})` }}
+                    className={`absolute inset-0 ${containPreview ? "bg-[#070a10]" : ""}`}
+                    style={containPreview ? undefined : { backgroundImage: `linear-gradient(135deg, ${project.accentFrom}, ${project.accentTo})` }}
                   />
-                  {coverImage && (
+                  {coverImage && containPreview ? (
+                    <div className="absolute inset-x-0 top-0 aspect-[1.9/1] overflow-hidden bg-[#070a10]">
+                      <Image
+                        src={coverImage}
+                        alt=""
+                        fill
+                        sizes={index === 0 ? "(max-width: 1024px) 100vw, 58vw" : "(max-width: 1024px) 100vw, 42vw"}
+                        className="object-cover opacity-95 transition duration-700 group-hover:scale-[1.015] group-hover:opacity-100"
+                      />
+                    </div>
+                  ) : coverImage ? (
                     <Image
                       src={coverImage}
                       alt=""
                       fill
                       sizes={index === 0 ? "(max-width: 1024px) 100vw, 58vw" : "(max-width: 1024px) 100vw, 42vw"}
-                      className="object-cover opacity-65 transition duration-700 group-hover:scale-[1.035] group-hover:opacity-80"
+                      className="object-cover opacity-90 transition duration-700 group-hover:scale-[1.025] group-hover:opacity-100"
                     />
-                  )}
+                  ) : null}
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/5" />
                   <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
                     <div className="mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/65">

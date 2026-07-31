@@ -143,12 +143,12 @@ export function Gallery({ slides, accentFrom, accentTo, projectName }: GalleryPr
               aria-selected={i === active}
               aria-label={`Go to slide ${i + 1}`}
               onClick={() => go(i)}
-              className={`relative aspect-[16/9] overflow-hidden rounded-lg border transition-all duration-300 ${
+              className={`relative aspect-[16/9] overflow-hidden rounded-lg border bg-[#070a10] transition-all duration-300 ${
                 i === active ? "border-accent ring-2 ring-accent/20" : "border-border opacity-55 hover:opacity-100"
               }`}
             >
               {slide.image ? (
-                <Image src={slide.image} alt="" fill sizes="160px" className="object-cover" />
+                <Image src={slide.image} alt="" fill sizes="160px" className="object-contain" />
               ) : (
                 <span style={{ backgroundImage: `linear-gradient(135deg, ${accentFrom}, ${accentTo})` }} className="absolute inset-0" />
               )}
@@ -187,8 +187,8 @@ function Frame({
 
       {/* Screen */}
       <div
-        className="relative flex aspect-[16/9] items-center justify-center"
-        style={{ backgroundImage: `linear-gradient(${angle}deg, ${accentFrom}, ${accentTo})` }}
+        className="relative flex aspect-[16/9] items-center justify-center bg-[#070a10]"
+        style={slide.image ? undefined : { backgroundImage: `linear-gradient(${angle}deg, ${accentFrom}, ${accentTo})` }}
       >
         {slide.image ? (
           <Image
@@ -196,7 +196,7 @@ function Frame({
             alt={slide.title}
             fill
             sizes="(max-width: 768px) 100vw, 768px"
-            className="object-cover"
+            className="object-contain"
           />
         ) : (
           <>

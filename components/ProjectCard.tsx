@@ -5,6 +5,12 @@ import type { Project } from "@/lib/data";
 export function ProjectCard({ project }: { project: Project }) {
   const coverImage = project.gallery[0]?.image;
   const coverAlt = `${project.name} — ${project.tagline}`;
+  const containPreview = [
+    "founderflow-executive-ai-brain",
+    "agentic-rag-document-intelligence",
+    "lyric-multilingual-foundation-model",
+    "xpera-health-recommendation",
+  ].includes(project.slug);
 
   return (
     <Link
@@ -13,20 +19,18 @@ export function ProjectCard({ project }: { project: Project }) {
     >
       {/* Cover */}
       <div
-        className="relative aspect-[16/10] w-full overflow-hidden border-b border-white/5"
-        style={{
+        className={`relative w-full overflow-hidden border-b border-white/5 ${containPreview ? "aspect-[1.9/1] bg-[#070a10]" : "aspect-[16/10]"}`}
+        style={containPreview ? undefined : {
           backgroundImage: `linear-gradient(135deg, ${project.accentFrom}, ${project.accentTo})`,
         }}
       >
-        {coverImage && (
-          <Image
-            src={coverImage}
-            alt={coverAlt}
-            fill
-            sizes="(max-width: 640px) 100vw, 50vw"
-            className="object-cover opacity-80 transition-all duration-700 group-hover:scale-[1.035] group-hover:opacity-100"
-          />
-        )}
+        {coverImage && <Image
+          src={coverImage}
+          alt={coverAlt}
+          fill
+          sizes="(max-width: 640px) 100vw, 50vw"
+          className="object-cover opacity-95 transition-all duration-700 group-hover:scale-[1.015] group-hover:opacity-100"
+        />}
         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/15" />
         <p className="absolute bottom-4 left-4 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
           {project.platform}
